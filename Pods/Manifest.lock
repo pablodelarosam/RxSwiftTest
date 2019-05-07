@@ -1,0 +1,40 @@
+PODS:
+  - Bond (7.5.0):
+    - Differ (~> 1.3)
+    - ReactiveKit (~> 3.10)
+  - Differ (1.4.1)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
+  - ReactiveKit (3.12.0)
+  - RxAtomic (4.4.2)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+
+DEPENDENCIES:
+  - Bond
+  - Nimble (= 7.3.1)
+  - Quick (= 1.3.2)
+  - RxSwift (= 4.4.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bond
+    - Differ
+    - Nimble
+    - Quick
+    - ReactiveKit
+    - RxAtomic
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Bond: 6abbc33a4cf88e65a0f8b1ba8276ac34584ad897
+  Differ: ca4350872e32a1aeedf3d9e2d9e47127833bfa9c
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  ReactiveKit: 7634cc10d9fb8791f9a87bf60c283fb420db3184
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+
+PODFILE CHECKSUM: f27a64992746b3f8493412bfb03889668e2424f8
+
+COCOAPODS: 1.5.3

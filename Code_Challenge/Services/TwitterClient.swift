@@ -65,7 +65,7 @@ extension TwitterClient {
   }
 }
 
-private let users = ["user": "password"]
+private let users = ["Joor": "joor"]
 
 private let tweets = [
   Tweet(id: 1, content: "Oh brother...", user: "Isaac Casanova"),

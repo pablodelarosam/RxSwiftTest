@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     }()
     
     let tweetFeedControler = UINavigationController(rootViewController: TweetFeedViewController())
+
     
 
     override func viewDidLoad() {
@@ -22,33 +23,41 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+  
+        setupView()
         bindUI()
+
+
     }
-    
+
+
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         TwitterClient.shared.isLoggedIn.observeNext { (isLoggedIn: Bool) -> Void in /* handle logged in status change */
             if isLoggedIn {
+                print("Listening")
                 self.present(self.tweetFeedControler, animated: true, completion: nil)
             }
         }
+
     }
     
     private func bindUI() {
-        loginView.loginButton.addTarget(self, action: #selector(didTapLoginButton(sender:)) , for: .touchUpInside)
-        print(TwitterClient.shared.isLoggedIn.value)
-    }
-    
-    override func loadView() {
-        view = loginView
-    }
-    
-    @objc func didTapLoginButton(sender: AnyObject) {
-        self.present(tweetFeedControler, animated: true, completion: nil)
-        if let userName = loginView.usernameTextField.text, let password = loginView.passwordTextField.text {
-            TwitterClient.shared.logIn(username: userName , password: password)
+        loginView.loginButton.rx.tap.bind {
+            if let userName = self.loginView.usernameTextField.text, let password = self.loginView.passwordTextField.text {
+                TwitterClient.shared.logIn(username: userName , password: password)
+            }
         }
-  
+
     }
     
-
+    func setupView() {
+        view.addSubview(loginView)
+        loginView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        loginView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        loginView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+    }
 }

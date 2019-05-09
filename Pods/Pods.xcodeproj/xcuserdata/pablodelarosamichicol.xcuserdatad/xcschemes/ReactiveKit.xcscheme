@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "32680E0454AD92FE2264CE67CC80CC9E"
+               BlueprintIdentifier = "CDDECBE9E897680A2D87329717793EE0"
+               BuildableName = "ReactiveKit.framework"
                BlueprintName = "ReactiveKit"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ReactiveKit.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -20,7 +20,7 @@ class LoginView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
         button.layer.cornerRadius = 15
-        NSLayoutConstraint(item: button, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: button, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0).isActive = true
         return button
     }()
     
@@ -30,7 +30,7 @@ class LoginView: UIView {
        textfield.placeholder = "Username"
        textfield.backgroundColor = .white
        textfield.layer.cornerRadius = 15
-       NSLayoutConstraint(item: textfield, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+       NSLayoutConstraint(item: textfield, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant:40.0).isActive = true
        return textfield
     }()
     
@@ -40,7 +40,7 @@ class LoginView: UIView {
         textfield.backgroundColor = .white
         textfield.placeholder = "Password"
         textfield.layer.cornerRadius = 15
-        NSLayoutConstraint(item: textfield, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: textfield, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0).isActive = true
         textfield.isSecureTextEntry = true
         return textfield
     }()
@@ -50,28 +50,20 @@ class LoginView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "twitterLogin")
-        NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 1.0, constant: 0.0).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return imageView
     }()
     
     lazy var infoStackView: UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [twitterImageView, usernameTextField, passwordTextField])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .equalCentering
-        stackView.spacing = 5
-       return stackView
-    }()
-    
-    lazy var loginStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [infoStackView, loginButton ])
+       let stackView = UIStackView(arrangedSubviews: [ usernameTextField, passwordTextField, loginButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.alignment = .fill
         stackView.spacing = 5
-        return stackView
+       return stackView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commitInit()
@@ -84,13 +76,15 @@ class LoginView: UIView {
     private func commitInit() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor(hex: "#65bbf2")
+        addSubview(twitterImageView)
+        addSubview(infoStackView)
         
-        addSubview(loginStackView)
-        readableContentGuide.topAnchor.constraint(equalTo: loginStackView.topAnchor, constant: -60.0).isActive = true
-        readableContentGuide.bottomAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 20.0).isActive = true
-        readableContentGuide.leadingAnchor.constraint(equalTo: loginStackView.leadingAnchor, constant: -20.0).isActive = true
-        readableContentGuide.trailingAnchor.constraint(equalTo: loginStackView.trailingAnchor, constant: 20.0).isActive = true
+        twitterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        twitterImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
+        twitterImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        twitterImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        infoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -60.0).isActive = true
+        infoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0).isActive = true
+        infoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
     }
-    
-    
 }

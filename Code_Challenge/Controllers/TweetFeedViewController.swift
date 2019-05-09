@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TweetFeedViewController: UIViewController {
 
@@ -15,13 +17,13 @@ class TweetFeedViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         buildUI()
+        print(TwitterClient.shared.loadTimeline())
     }
     
     private func buildUI() {
         view.backgroundColor = .white
         let rightButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logout))
         self.navigationItem.rightBarButtonItem = rightButton
-     //   navigationController?.navigationItem.rightBarButtonItem = rightButton
         print(TwitterClient.shared)
     }
     

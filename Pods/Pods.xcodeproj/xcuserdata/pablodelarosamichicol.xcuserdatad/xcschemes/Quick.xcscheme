@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED0B1F466637FD9D15CA36932B533D74"
+               BlueprintIdentifier = "C40E36EB272B91033B4C735E2F5F9FC6"
+               BuildableName = "Quick.framework"
                BlueprintName = "Quick"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Quick.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

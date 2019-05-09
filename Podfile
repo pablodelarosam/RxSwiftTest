@@ -9,7 +9,8 @@ target 'Code_Challenge' do
 
 
   pod 'Bond'
-  pod 'RxSwift', '4.4.1'
+  pod 'RxSwift', '5'
+  pod 'RxCocoa', '~> 5'
 
   target 'Code_ChallengeTests' do
     inherit! :search_paths

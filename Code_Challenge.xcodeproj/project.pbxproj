@@ -10,9 +10,9 @@
 		911E03C1227FB1DE007C89E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03C0227FB1DE007C89E1 /* LoginViewController.swift */; };
 		911E03C3227FB1F4007C89E1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03C2227FB1F4007C89E1 /* LoginView.swift */; };
 		911E03C6227FB2B8007C89E1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03C5227FB2B8007C89E1 /* ColorExtension.swift */; };
-		911E03C822800997007C89E1 /* TweetFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03C722800997007C89E1 /* TweetFeedView.swift */; };
 		911E03CA228150D6007C89E1 /* TweetFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03C9228150D6007C89E1 /* TweetFeedViewController.swift */; };
 		911E03CC22815214007C89E1 /* TweetFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E03CB22815214007C89E1 /* TweetFeedViewModel.swift */; };
+		91BFFBC822876FD0006C6E6D /* TweetCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFFBC722876FD0006C6E6D /* TweetCellTableViewCell.swift */; };
 		E39AD7CD50228EC0EFF63D84 /* Pods_Code_ChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCB362D8C5DED6F5762BA72 /* Pods_Code_ChallengeTests.framework */; };
 		E5391C1721AB788E0052B1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5391C1621AB788E0052B1EA /* AppDelegate.swift */; };
 		E5391C1E21AB788E0052B1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5391C1D21AB788E0052B1EA /* Assets.xcassets */; };
@@ -41,9 +41,9 @@
 		911E03C0227FB1DE007C89E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		911E03C2227FB1F4007C89E1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		911E03C5227FB2B8007C89E1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		911E03C722800997007C89E1 /* TweetFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFeedView.swift; sourceTree = "<group>"; };
-		911E03C9228150D6007C89E1 /* TweetFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFeedViewController.swift; sourceTree = "<group>"; };
+		911E03C9228150D6007C89E1 /* TweetFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFeedViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		911E03CB22815214007C89E1 /* TweetFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFeedViewModel.swift; sourceTree = "<group>"; };
+		91BFFBC722876FD0006C6E6D /* TweetCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellTableViewCell.swift; sourceTree = "<group>"; };
 		A3CF3D80E0331742D8C839AE /* Pods-Code_ChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code_ChallengeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code_ChallengeTests/Pods-Code_ChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4F646D73B0FD2EAF133BB29 /* Pods-Code_ChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code_ChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code_ChallengeTests/Pods-Code_ChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5391C1321AB788E0052B1EA /* Code_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Code_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				911E03C2227FB1F4007C89E1 /* LoginView.swift */,
-				911E03C722800997007C89E1 /* TweetFeedView.swift */,
+				91BFFBC722876FD0006C6E6D /* TweetCellTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,9 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				911E03C822800997007C89E1 /* TweetFeedView.swift in Sources */,
 				911E03C1227FB1DE007C89E1 /* LoginViewController.swift in Sources */,
 				E5391C3F21AB79D80052B1EA /* Tweet.swift in Sources */,
+				91BFFBC822876FD0006C6E6D /* TweetCellTableViewCell.swift in Sources */,
 				E5391C3D21AB79D10052B1EA /* TwitterClient.swift in Sources */,
 				911E03CA228150D6007C89E1 /* TweetFeedViewController.swift in Sources */,
 				911E03C6227FB2B8007C89E1 /* ColorExtension.swift in Sources */,

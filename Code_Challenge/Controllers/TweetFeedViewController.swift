@@ -12,12 +12,43 @@ import RxCocoa
 
 class TweetFeedViewController: UIViewController {
 
+    // MARK: - Instance Properties
+    internal var tweetViewModels: [TweetFeedViewModel] = []
+    private let tableView = UITableView()
+    private let  disposeBag = DisposeBag()
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         buildUI()
-        print(TwitterClient.shared.loadTimeline())
+        setUpTweetTableView()
+        fillTweets()
+    }
+    
+    private func setUpTweetTableView() {
+        view.addSubview(tableView)
+        navigationItem.leftBarButtonItem?.isEnabled = false
+        navigationItem.hidesBackButton = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0.0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0.0),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0.0)
+            ])
+    }
+    
+    private func fillTweets() {
+        let timeLine = TwitterClient.shared.loadTimeline()
+        tweetViewModels = timeLine.map{ TweetFeedViewModel(tweet: $0) }
+        let tweets = Observable.just(tweetViewModels)
+        tableView.register(TweetCellTableViewCell.self, forCellReuseIdentifier: "cell")
+        tweets.bind(to: tableView.rx.items(cellIdentifier: "cell")) { row, model, cell in
+            model.configure(cell as! TweetViewModelView)
+            }.disposed(by: disposeBag)
     }
     
     private func buildUI() {
@@ -27,21 +58,8 @@ class TweetFeedViewController: UIViewController {
         print(TwitterClient.shared)
     }
     
-    @objc func logout() {
+    @objc private func logout() {
         TwitterClient.shared.logOut()
-        self.present(LoginViewController(), animated: true, completion: nil)
-        print("It Works")
+        self.navigationController?.popViewController(animated: false)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -13,11 +13,7 @@ class LoginViewController: UIViewController {
     lazy var loginView: LoginView = {
         return LoginView()
     }()
-    
-    let tweetFeedControler = UINavigationController(rootViewController: TweetFeedViewController())
-
-    
-
+    let tweetFeedControler =  TweetFeedViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,23 +22,17 @@ class LoginViewController: UIViewController {
   
         setupView()
         bindUI()
-
-
-    }
-
-
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-        TwitterClient.shared.isLoggedIn.observeNext { (isLoggedIn: Bool) -> Void in /* handle logged in status change */
-            if isLoggedIn {
-                print("Listening")
-                self.present(self.tweetFeedControler, animated: true, completion: nil)
-            }
-        }
-
+        handleLogin()
     }
     
+    private func handleLogin() {
+        TwitterClient.shared.isLoggedIn.observeNext { (isLoggedIn: Bool) -> Void in
+            if isLoggedIn {
+                self.navigationController?.pushViewController(self.tweetFeedControler, animated: true)
+            }
+        }
+    }
+
     private func bindUI() {
         loginView.loginButton.rx.tap.bind {
             if let userName = self.loginView.usernameTextField.text, let password = self.loginView.passwordTextField.text {
@@ -54,6 +44,10 @@ class LoginViewController: UIViewController {
     
     func setupView() {
         view.addSubview(loginView)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         loginView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         loginView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         loginView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

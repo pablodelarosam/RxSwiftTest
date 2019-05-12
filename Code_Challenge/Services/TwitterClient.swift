@@ -38,7 +38,7 @@ extension TwitterClient {
   /**
    Attempts to log in the user.
    
-   On success, the property `isLoggedIn.value` will be set to `true`
+     On success, the property `isLoggedIn.value` will be set to `true`
    
    On failure, nothing will happen
    

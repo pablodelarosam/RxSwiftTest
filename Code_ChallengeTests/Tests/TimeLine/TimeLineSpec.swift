@@ -9,6 +9,8 @@
 @testable import Code_Challenge
 import Nimble
 import Quick
+import Foundation
+
 
 class TimeLineSpec: QuickSpec {}
 
@@ -16,22 +18,34 @@ class TimeLineSpec: QuickSpec {}
 extension TimeLineSpec {
     override func spec()
     {
-        var subject: TwitterClient!
-        beforeEach { subject = .shared }
-        describe("valid login") {
-            context("when a valid login is entered") {
-                beforeEach { subject.logIn(username: "Joor", password: "joor") }
+        describe("valid timeline") {
+            describe("decode") {
+                var jsonData: Data!
+                var decoder: JSONDecoder!
                 
-                it("sets isLoggedIn.value = `true`") {
-                    expect(subject.isLoggedIn.value).to(beTrue())
+                beforeEach {
+                    decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                 }
-            }
-            
-            context("when an invalid login is entered") {
-                beforeEach { subject.logIn(username: "Joor", password: "jooor") }
                 
-                it("does nothing") {
-                    expect(subject.isLoggedIn.value).to(beTrue())
+                context("valid json") {
+                    beforeEach {
+                        jsonData = TweetFake.data(forJson: "timeLine-valid")
+                    }
+                    it("constructs TimeLine instance") {
+                        let expected = TweetFake.validTimeLine()
+                        expect { try decoder.decode([Tweet].self, from: jsonData) }.to(equal(expected))
+                    }
+                }
+                
+                context("missing key") {
+                    beforeEach {
+                        jsonData = TweetFake.data(forJson: "timeLine-invalid")
+                    }
+                    
+                    it("throws error") {
+                        expect { try decoder.decode([Tweet].self, from: jsonData) }.to(throwError())
+                    }
                 }
             }
         }

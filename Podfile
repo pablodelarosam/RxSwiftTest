@@ -15,8 +15,8 @@ target 'Code_Challenge' do
   target 'Code_ChallengeTests' do
     inherit! :search_paths
 
-    pod 'Quick', '= 1.3.2'
-    pod 'Nimble', '= 7.3.1'
+    pod 'Quick'
+    pod 'Nimble'
   end
 end
 

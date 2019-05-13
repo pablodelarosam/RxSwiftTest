@@ -6,7 +6,7 @@
 //  Copyright © 2018 JOOR. All rights reserved.
 //
 
-struct Tweet {
+struct Tweet: Equatable, Codable {
   var id: Int
   var content: String
   var user: String

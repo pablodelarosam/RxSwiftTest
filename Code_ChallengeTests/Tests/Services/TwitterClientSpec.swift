@@ -21,7 +21,7 @@ extension TwitterClientSpec {
     
     describe("logIn(username:, password:)") {
       context("when a valid login is entered") {
-        beforeEach { subject.logIn(username: "user", password: "password") }
+        beforeEach { subject.logIn(username: "Joor", password: "joor") }
         
         it("sets isLoggedIn.value = `true`") {
           expect(subject.isLoggedIn.value).to(beTrue())
